@@ -260,6 +260,16 @@ to_basic.GeomLine <- function(data, prestats_data, layout, params, p, ...) {
   prefix_class(data, "GeomPath")
 }
 
+to_basic.GeomArcBar <- function(data, prestats_data, layout, params, p, ...) {
+  prefix_class(data, "GeomPolygon")
+}
+
+to_basic.GeomEdgePath <- function(data, prestats_data, layout, params, p, ...) {
+  data <- data[order(data[["x"]]), ]
+  prefix_class(data, "GeomPath")
+}
+
+
 #' @export
 to_basic.GeomStep <- function(data, prestats_data, layout, params, p, ...) {
   data <- data[order(data[["x"]]), ]
